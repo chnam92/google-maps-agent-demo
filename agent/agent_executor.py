@@ -9,7 +9,6 @@ from a2a.server.events import EventQueue
 from a2a.server.tasks import TaskUpdater
 from a2a.types import (
     DataPart,
-    Part,
     Task,
     TaskState,
     TextPart,
