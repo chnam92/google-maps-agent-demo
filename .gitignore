@@ -1,0 +1,23 @@
+# secrets — API 키는 절대 커밋 금지
+.env
+.env.local
+.env.*.local
+
+# python
+__pycache__/
+*.pyc
+.venv/
+
+# node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# 테스트/도구 산출물
+.playwright-mcp/
+*.log
+
+# OS/IDE
+.DS_Store
+.idea/
+.vscode/

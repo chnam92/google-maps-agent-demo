@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+      integrity="sha384-GIdEBaqGN9mNkDkMkzMHW8EKUqtpPIe/sLj1X7DIrnc9uPtLROJgmuDlh+3rBw0j"
+      crossorigin="anonymous"
+    />
+    <!-- Maps Agentic UI Toolkit은 v=alpha 채널과 아래 라이브러리 목록을 요구한다.
+         Maps JS API 부트스트랩은 키/버전별로 동적 생성되므로 SRI(integrity)를 지원하지 않는다. -->
+    <script
+      async
+      src="https://maps.googleapis.com/maps/api/js?v=alpha&key=$GOOGLE_MAPS_API_KEY&libraries=maps,marker,places,maps3d,routes&loading=async"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script>
+      window.SERVER_URL = '$SERVER_URL'
+    </script>
+    <title>맛집 파인더 — Maps Agentic UI 데모</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

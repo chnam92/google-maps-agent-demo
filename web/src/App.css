@@ -1,0 +1,326 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* --- 헤더 --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.15rem;
+  box-shadow: 0 4px 14px rgba(232, 89, 12, 0.35);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.brand-text strong {
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.brand-text span {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.header-link {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9999px;
+  transition: all 0.15s ease;
+}
+
+.header-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* --- 채팅 영역 --- */
+.chat {
+  flex: 1;
+  overflow-y: auto;
+  padding: 32px 24px 16px;
+}
+
+.chat > maui-providers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* --- 첫 화면 히어로 --- */
+.hero {
+  text-align: center;
+  padding: 9vh 8px 24px;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 4.5vw, 2.6rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero p {
+  color: var(--ink-soft);
+  margin: 0 0 32px;
+  font-size: 1.02rem;
+}
+
+.chips {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  font: inherit;
+  font-size: 0.93rem;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.chip:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.chip-emoji {
+  font-size: 1.2rem;
+}
+
+/* --- 메시지 --- */
+.msg {
+  animation: rise 0.25s ease both;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.msg-user {
+  align-self: flex-end;
+  max-width: 78%;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 20px 20px 4px 20px;
+  font-size: 0.97rem;
+  line-height: 1.5;
+  box-shadow: 0 3px 10px rgba(232, 89, 12, 0.25);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.msg-bot {
+  align-self: flex-start;
+  max-width: 85%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 12px 18px;
+  border-radius: 20px 20px 20px 4px;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.msg-action {
+  align-self: center;
+  max-width: 90%;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  background: var(--accent-soft);
+  border-radius: 12px;
+  padding: 8px 14px;
+}
+
+.msg-action pre {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* A2UI 서피스(장소 카드/지도/경로)는 넓게 */
+.msg-surface {
+  width: 100%;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 8px;
+  overflow: hidden;
+}
+
+/* --- 로딩 --- */
+.thinking {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  padding: 10px 16px;
+}
+
+.thinking .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.thinking .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.thinking .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+/* --- 입력창 --- */
+.composer {
+  padding: 12px 24px 18px;
+  background: linear-gradient(to top, var(--paper) 70%, transparent);
+}
+
+.composer-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 760px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 24px;
+  padding: 10px 10px 10px 20px;
+  transition: border-color 0.15s ease;
+}
+
+.composer-inner:focus-within {
+  border-color: var(--accent);
+}
+
+.composer-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  resize: none;
+  font: inherit;
+  font-size: 0.97rem;
+  line-height: 1.5;
+  background: transparent;
+  color: var(--ink);
+  max-height: 120px;
+}
+
+.composer-input::placeholder {
+  color: color-mix(in srgb, var(--ink-soft) 70%, transparent);
+}
+
+.composer-send {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.15rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.composer-send:hover:not(:disabled) {
+  transform: scale(1.06);
+}
+
+.composer-send:disabled {
+  background: var(--line);
+  color: var(--ink-soft);
+  cursor: default;
+}
+
+.composer-note {
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  margin: 10px 0 0;
+}

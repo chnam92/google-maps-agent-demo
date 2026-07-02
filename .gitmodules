@@ -1,0 +1,3 @@
+[submodule "vendor/a2ui"]
+	path = vendor/a2ui
+	url = https://github.com/googlemaps/a2ui
